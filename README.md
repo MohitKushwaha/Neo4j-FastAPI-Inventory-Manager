@@ -18,7 +18,7 @@ A high-performance, asynchronous **Inventory Management System** built with **Fa
 * **Database:** Neo4j (Graph Database)
 * **Query Language:** Cypher
 * **ODM / Driver:** Neo4j Python Driver (Async)
-* **AI Models:** OpenAI and more models examples
+* **AI Models:** OpenAI and Sentence-Transformers
 
 ---
 
