@@ -5,6 +5,7 @@ import random
 from neo4j import GraphDatabase
 from sentence_transformers import SentenceTransformer
 from module import create_embeddings, vector_search
+from module import rag
 
 app = FastAPI(
     title="Neo4j FastAPI Integration",
@@ -197,6 +198,15 @@ def create_vector_index_openai():
 def get_vector_search(query: str = 'customers with names similar to WWE wrestlers'):
     try:
         return vector_search.vector_search(query, driver, NEO4J_DATABASE, SentenceTransformer)
+    except:
+        return {'error': 'Something went wrong'}
+
+
+# RAG Query API
+@app.get("/rag_query")
+def rag_query(query:str = "Find customers with names similar to WWE wrestlers"):
+    try:
+        return rag.rag_query(query=query)
     except:
         return {'error': 'Something went wrong'}
 
